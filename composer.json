@@ -7,5 +7,10 @@
             "email": "techlee@qq.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "TechOne\\Support\\": "src"
+        }
+    },
 }
