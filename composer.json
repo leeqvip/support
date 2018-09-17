@@ -1,0 +1,11 @@
+{
+    "name": "administrator/support",
+    "description": "the php tools",
+    "authors": [
+        {
+            "name": "TechLee",
+            "email": "techlee@qq.com"
+        }
+    ],
+    "require": {}
+}
