@@ -28,4 +28,27 @@ class Str
 
         return false;
     }
+
+    public static function studlyCase($str)
+    {
+        $value = ucwords(str_replace(['-', '_'], ' ', $value));
+
+        return str_replace(' ', '', $value);
+    }
+
+    public static function rmTags($str)
+    {
+        $str = strip_tags($str);
+        return preg_replace('/\s/', '', $str);
+    }
+
+    public static function limit($value, $limit = 100, $end = '...')
+    {
+        $value = self::rmTags($value);
+        if (mb_strwidth($value, 'UTF-8') <= $limit) {
+            return $value;
+        }
+
+        return rtrim(mb_strimwidth($value, 0, $limit, '', 'UTF-8')) . $end;
+    }
 }

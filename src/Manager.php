@@ -1,6 +1,8 @@
 <?php
 namespace TechOne\Support;
 
+use Str;
+
 abstract class Manager
 {
     /**
@@ -39,7 +41,7 @@ abstract class Manager
 
     protected function createDriver($driver)
     {
-        $method = 'create' . parse_name($driver) . 'Driver';
+        $method = 'create' . Str::studlyCase($driver) . 'Driver';
 
         if (method_exists($this, $method)) {
             return $this->$method();

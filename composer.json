@@ -11,6 +11,10 @@
     "autoload": {
         "psr-4": {
             "TechOne\\Support\\": "src"
-        }
+        },
+        "files": [
+          "helper.php"
+        ]
     },
 }
+`
