@@ -1,6 +1,21 @@
 <?php
 
 use TechOne\Support\Str;
+use TechOne\Support\Dumper;
+
+if (!function_exists('dump')) {
+    function dump(...$vars)
+    {
+        Dumper::dump(...$vars);
+    }
+}
+
+if (!function_exists('dd')) {
+    function dd(...$vars)
+    {
+        Dumper::dump(...$vars);
+    }
+}
 
 if (!function_exists('starts_with')) {
     function starts_with($haystack, $needles)

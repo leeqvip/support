@@ -1,7 +1,6 @@
 <?php
-namespace TechOne\Support;
 
-use Str;
+namespace TechOne\Support;
 
 abstract class Manager
 {
@@ -22,16 +21,14 @@ abstract class Manager
     /**
      * Get a driver instance.
      *
-     * @param  string  $driver
+     * @param string $driver
+     *
      * @return mixed
      */
     public function driver($driver = null)
     {
         $driver = $driver ?: $this->getDefaultDriver();
 
-        // If the given driver has not been created before, we will create the instances
-        // here and cache it so we can return it next time very quickly. If there is
-        // already a driver created by this name, we'll just return that instance.
         if (!isset($this->drivers[$driver])) {
             $this->drivers[$driver] = $this->createDriver($driver);
         }
@@ -41,7 +38,7 @@ abstract class Manager
 
     protected function createDriver($driver)
     {
-        $method = 'create' . Str::studlyCase($driver) . 'Driver';
+        $method = 'create'.Str::studlyCase($driver).'Driver';
 
         if (method_exists($this, $method)) {
             return $this->$method();
@@ -62,8 +59,9 @@ abstract class Manager
     /**
      * Dynamically call the default driver instance.
      *
-     * @param  string  $method
-     * @param  array   $parameters
+     * @param string $method
+     * @param array  $parameters
+     *
      * @return mixed
      */
     public function __call($method, $parameters)

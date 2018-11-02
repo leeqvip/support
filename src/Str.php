@@ -31,7 +31,7 @@ class Str
 
     public static function studlyCase($str)
     {
-        $value = ucwords(str_replace(['-', '_'], ' ', $value));
+        $value = ucwords(str_replace(['-', '_'], ' ', $str));
 
         return str_replace(' ', '', $value);
     }
