@@ -1,16 +1,13 @@
 <?php
+
 namespace TechOne\Support;
 
-/**
- *
- */
 class Str
 {
-
     public function startsWith($haystack, $needles)
     {
         foreach ((array) $needles as $needle) {
-            if ($needle !== '' && substr($haystack, 0, strlen($needle)) === (string) $needle) {
+            if ('' !== $needle && substr($haystack, 0, strlen($needle)) === (string) $needle) {
                 return true;
             }
         }
@@ -39,6 +36,7 @@ class Str
     public static function rmTags($str)
     {
         $str = strip_tags($str);
+
         return preg_replace('/\s/', '', $str);
     }
 
@@ -49,6 +47,6 @@ class Str
             return $value;
         }
 
-        return rtrim(mb_strimwidth($value, 0, $limit, '', 'UTF-8')) . $end;
+        return rtrim(mb_strimwidth($value, 0, $limit, '', 'UTF-8')).$end;
     }
 }

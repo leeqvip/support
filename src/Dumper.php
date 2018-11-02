@@ -2,9 +2,6 @@
 
 namespace TechOne\Support;
 
-/**
- *
- */
 class Dumper
 {
     public static function dump(...$vars)
@@ -17,9 +14,9 @@ class Dumper
         $output = preg_replace('/\]\=\>\n(\s+)/m', '] => ', $output);
 
         if (PHP_SAPI == 'cli') {
-            $output = PHP_EOL . $output . PHP_EOL;
+            $output = PHP_EOL.$output.PHP_EOL;
         } else {
-            $output = '<pre>' . $output . '</pre>';
+            $output = '<pre>'.$output.'</pre>';
         }
         exit($output);
     }
