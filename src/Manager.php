@@ -43,6 +43,7 @@ abstract class Manager
         if (method_exists($this, $method)) {
             return $this->$method();
         }
+
         throw new \Exception("Driver [$driver] not supported.");
     }
 
