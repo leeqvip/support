@@ -1,5 +1,6 @@
 <?php
 
+use TechOne\Support\Arr;
 use TechOne\Support\Str;
 use TechOne\Support\Dumper;
 
@@ -49,5 +50,19 @@ if (!function_exists('rm_tags')) {
     function rm_tags($str)
     {
         return Str::rmTags($str);
+    }
+}
+
+if (!function_exists('array_get')) {
+    function array_get($array, $key, $default = null)
+    {
+        return Arr::get($array, $key, $default);
+    }
+}
+
+if (!function_exists('value')) {
+    function value($value)
+    {
+        return $value instanceof Closure ? $value() : $value;
     }
 }
